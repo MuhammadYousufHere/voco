@@ -1,4 +1,4 @@
-type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<
+export type RequireOnlyOne<T, Keys extends keyof T = keyof T> = Pick<
   T,
   Exclude<keyof T, Keys>
 > &
@@ -13,9 +13,8 @@ type RequireOnly<T, P extends keyof T> = Pick<T, P> & Partial<Omit<T, P>>
 //Partial<Task>
 // everthing else is optional in the type definition of Task except for title which is required
 
-type Task = {
+export type Task = {
   title: string
-  description: string
   completed: boolean
   id: string | number
 }
