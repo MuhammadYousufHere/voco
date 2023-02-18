@@ -5,14 +5,15 @@ export type TaskState = {
   entitites: Task[]
 }
 type TaskRequiredTitle = RequireOnly<Task, 'title'>
-const makeTask = (draftTask: TaskRequiredTitle): Task => {
+export const makeTask = (draftTask: TaskRequiredTitle): Task => {
   return {
     id: nanoid(),
+    colunm: nanoid(),
     completed: false,
     ...draftTask,
   }
 }
-const initialState: TaskState = {
+export const initialState: TaskState = {
   entitites: [],
 }
 

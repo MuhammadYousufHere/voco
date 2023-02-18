@@ -17,6 +17,17 @@ export type Task = {
   title: string
   completed: boolean
   id: string | number
+  colunm: StatusColumn['id']
 }
-
-type TaskRequiredTitle = RequireOnly<Task, 'title'>
+type Status = 'todo' | 'in-progress' | 'done'
+export type User = {
+  name: string
+  age: number
+  id: string | number
+  tasks: Task['id'][]
+}
+type StatusColumn = {
+  id: string | number
+  tasks: Task['id'][]
+  title: Status
+}

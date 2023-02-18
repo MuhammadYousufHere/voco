@@ -1,5 +1,4 @@
 import { createReducer, createAction } from '@reduxjs/toolkit'
-
 const increment = createAction('increment', () => ({
   payload: 1,
 }))
