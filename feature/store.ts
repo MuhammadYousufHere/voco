@@ -1,10 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import taskReducer from './TaskSlice'
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux'
+import { api } from '@my/services/api-service'
 
 const store = configureStore({
   reducer: {
     tasks: taskReducer,
+    [api.reducerPath]: api.reducer,
+  },
+  middleware: (getDefaultMiddleWare) => {
+    return getDefaultMiddleWare().concat(api.middleware)
   },
 })
 
